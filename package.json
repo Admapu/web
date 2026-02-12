@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --host"
+    "preview": "vite preview --host",
+    "deploy": "wrangler pages deploy dist --project-name=${CF_PAGES_PROJECT_NAME} --branch=${CF_PAGES_BRANCH:-main}"
   },
   "devDependencies": {
-    "vite": "^5.4.10"
+    "vite": "^5.4.10",
+    "wrangler": "^4.64.0"
   }
 }
