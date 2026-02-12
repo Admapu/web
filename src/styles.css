@@ -22,7 +22,7 @@ body {
   z-index: 0;
   background-image:
     linear-gradient(rgba(10, 1, 40, 0.35), rgba(10, 1, 40, 0.55)),
-    url('/bg-current.png');
+    url('/bg-new.jpg');
   background-size: cover;
   background-position: center;
   filter: saturate(1.12) contrast(1.1);
