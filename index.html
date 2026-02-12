@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admapu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a2e0e6ad65.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="scene" aria-hidden="true"></div>
+    <canvas id="network" aria-hidden="true"></canvas>
+
+    <main class="content">
+      <section class="inner">
+        <h1>Admapu</h1>
+        <p class="subtitle">
+          PoC de una stablecoin ERC-20 diseñada para ser utilizada exclusivamente por ciudadanos chilenos,
+          donde la elegibilidad se demuestra on-chain mediante un verificador de identidad externo basado
+          en Zero-Knowledge.
+        </p>
+
+        <p class="links">
+          <a class="icon-link" href="https://github.com/boris/admapu" target="_blank" rel="noopener noreferrer" title="Ver en GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          ·
+          <a class="icon-link" href="/docs" title="Documentación">
+            <i class="fa-solid fa-book"></i>
+          </a>
+        </p>
+      </section>
+    </main>
+
+    <div class="vignette" aria-hidden="true"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
