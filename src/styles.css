@@ -1,9 +1,9 @@
 :root {
   --font-title: "Space Grotesk", system-ui, sans-serif;
   --font-body: "IBM Plex Sans", system-ui, sans-serif;
-  --neon-pink: #ff2bd6;
-  --neon-cyan: #19f5ff;
-  --neon-purple: #7a5cff;
+  --title-white: #f5f7fb;
+  --text-soft: #e8edf6;
+  --accent-soft: #cfd9ee;
   --bg-dark: #05010a;
 }
 
@@ -25,7 +25,7 @@ body {
     url('/bg-new.jpg');
   background-size: cover;
   background-position: center;
-  filter: saturate(1.12) contrast(1.1);
+  filter: saturate(1.02) contrast(1.06);
 }
 
 canvas {
@@ -56,15 +56,15 @@ h1 {
   font-family: var(--font-title);
   font-size: clamp(3.2rem, 9vw, 5.6rem);
   letter-spacing: -0.04em;
-  color: var(--neon-pink);
-  text-shadow: 0 0 12px rgba(255, 43, 214, 0.8), 0 0 36px rgba(255, 43, 214, 0.6);
+  color: var(--title-white);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 10px 30px rgba(0,0,0,0.28);
 }
 
 .subtitle {
   font-size: clamp(1rem, 2.4vw, 1.25rem);
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 0 12px rgba(25, 245, 255, 0.25);
+  color: rgba(245, 248, 255, 0.94);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.28);
   margin: 0 auto 1.3rem;
 }
 
@@ -73,7 +73,7 @@ h1 {
 }
 
 .icon-link {
-  color: var(--neon-cyan);
+  color: var(--text-soft);
   opacity: 0.88;
   text-decoration: none;
   transition: opacity .2s ease, text-shadow .2s ease;
@@ -81,7 +81,7 @@ h1 {
 
 .icon-link:hover {
   opacity: 1;
-  text-shadow: 0 0 8px rgba(25, 245, 255, .6), 0 0 16px rgba(122, 92, 255, .4);
+  text-shadow: 0 1px 8px rgba(255,255,255,.28);
 }
 
 .icon-link i { font-size: 1.15rem; }
