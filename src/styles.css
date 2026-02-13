@@ -1,3 +1,5 @@
+@import "@fortawesome/fontawesome-free/css/all.css";
+
 :root {
   --font-title: "Space Grotesk", system-ui, sans-serif;
   --font-body: "IBM Plex Sans", system-ui, sans-serif;
@@ -70,6 +72,9 @@ h1 {
 
 .links {
   margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
 }
 
 .icon-link {
@@ -86,45 +91,10 @@ h1 {
 
 .icon-link i { font-size: 1.15rem; }
 
-.org-footer {
-  position: fixed;
-  right: 1rem;
-  bottom: max(1rem, env(safe-area-inset-bottom));
-  z-index: 6;
-  pointer-events: none;
-}
 
-.org-link {
-  pointer-events: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: #f8fbff;
-  background: rgba(6, 10, 22, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 999px;
-  padding: 0.45rem 0.7rem;
-  text-decoration: none;
-  font-size: 0.88rem;
-  line-height: 1;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-  transition: opacity .2s ease, transform .2s ease;
-}
 
-.org-link:hover {
-  opacity: 1;
-  transform: translateY(-1px);
-}
 
-.org-link i {
-  font-size: 1.05rem;
-}
 
-.org-label {
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
 
 .vignette {
   position: fixed;
