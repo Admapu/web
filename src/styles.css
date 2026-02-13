@@ -1,3 +1,5 @@
+@import "@fortawesome/fontawesome-free/css/all.css";
+
 :root {
   --font-title: "Space Grotesk", system-ui, sans-serif;
   --font-body: "IBM Plex Sans", system-ui, sans-serif;
