@@ -21,7 +21,18 @@
           <p class="subtitle">Notas técnicas y avances del proyecto Admapu.</p>
         </header>
 
-        <article id="blog-post" class="blog-post" aria-live="polite"></article>
+        <div class="blog-layout">
+          <aside class="blog-sidebar">
+            <h2>Posts</h2>
+            <nav id="blog-post-list" class="blog-post-list" aria-label="Listado de posts"></nav>
+          </aside>
+
+          <article>
+            <h2 id="blog-post-title" class="blog-post-title"></h2>
+            <p id="blog-post-meta" class="muted small"></p>
+            <div id="blog-post" class="blog-post" aria-live="polite"></div>
+          </article>
+        </div>
       </section>
     </main>
 
