@@ -14,8 +14,14 @@ if (!Array.isArray(posts)) {
   throw new Error('public/posts/index.json debe ser un array');
 }
 
+const SLUG_RE = /^[A-Za-z0-9-_]+$/;
+
 for (const post of posts) {
   if (!post?.slug) continue;
+  if (!SLUG_RE.test(post.slug)) {
+    console.warn(`Skipping post with invalid slug: ${JSON.stringify(post.slug)}`);
+    continue;
+  }
   const dir = resolve(root, 'blog', post.slug);
   await mkdir(dir, { recursive: true });
   await writeFile(resolve(dir, 'index.html'), template, 'utf8');

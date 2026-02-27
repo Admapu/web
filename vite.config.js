@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite';
 import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 function blogTrailingSlashPlugin() {
   return {
@@ -30,7 +33,7 @@ function blogInputs() {
     const posts = JSON.parse(readFileSync(resolve(__dirname, 'public/posts/index.json'), 'utf8'));
     if (Array.isArray(posts)) {
       for (const post of posts) {
-        if (!post?.slug) continue;
+        if (!post?.slug || !/^[A-Za-z0-9-_]+$/.test(post.slug)) continue;
         inputs[`blog-${post.slug}`] = resolve(__dirname, `blog/${post.slug}/index.html`);
       }
     }
