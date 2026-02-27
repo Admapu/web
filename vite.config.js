@@ -2,6 +2,24 @@ import { defineConfig } from 'vite';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
+function blogTrailingSlashPlugin() {
+  return {
+    name: 'blog-trailing-slash',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const url = req.url || '/';
+        if ((url === '/blog' || /^\/blog\/[A-Za-z0-9-_]+$/.test(url)) && !url.endsWith('/')) {
+          res.statusCode = 302;
+          res.setHeader('Location', `${url}/`);
+          res.end();
+          return;
+        }
+        next();
+      });
+    },
+  };
+}
+
 function blogInputs() {
   const inputs = {
     main: resolve(__dirname, 'index.html'),
@@ -24,6 +42,8 @@ function blogInputs() {
 }
 
 export default defineConfig({
+  appType: 'mpa',
+  plugins: [blogTrailingSlashPlugin()],
   build: {
     rollupOptions: {
       input: blogInputs(),
