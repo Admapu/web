@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "prepare:blog-routes": "node scripts/generate-blog-routes.mjs",
+    "dev": "npm run prepare:blog-routes && vite",
+    "build": "npm run prepare:blog-routes && vite build",
     "preview": "vite preview --host",
     "deploy": "wrangler deploy"
   },

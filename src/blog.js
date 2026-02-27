@@ -6,6 +6,12 @@ const postMeta = document.getElementById('blog-post-meta');
 const postList = document.getElementById('blog-post-list');
 
 function getSlugFromUrl() {
+  const path = window.location.pathname.replace(/\/+$/, '');
+  const parts = path.split('/').filter(Boolean);
+  // /blog/<slug>
+  if (parts.length >= 2 && parts[0] === 'blog') return parts[1];
+
+  // backward compatibility: /blog/?post=<slug>
   const url = new URL(window.location.href);
   return url.searchParams.get('post');
 }
@@ -15,7 +21,7 @@ function renderList(posts, activeSlug) {
     .map((post) => {
       const active = post.slug === activeSlug ? 'active' : '';
       return `
-        <a class="post-link ${active}" href="/blog/?post=${encodeURIComponent(post.slug)}">
+        <a class="post-link ${active}" href="/blog/${encodeURIComponent(post.slug)}">
           <strong>${post.title}</strong>
           <span>${post.date ?? ''}</span>
         </a>
