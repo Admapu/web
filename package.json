@@ -4,8 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "prepare:blog-routes": "node scripts/generate-blog-routes.mjs",
+    "dev": "npm run prepare:blog-routes && vite",
+    "build": "npm run prepare:blog-routes && vite build",
     "preview": "vite preview --host",
     "deploy": "wrangler deploy"
   },
@@ -14,6 +15,8 @@
     "wrangler": "^4.64.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^7.2.0"
+    "@fortawesome/fontawesome-free": "^7.2.0",
+    "dompurify": "^3.3.1",
+    "marked": "^15.0.7"
   }
 }
