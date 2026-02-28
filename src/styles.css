@@ -140,6 +140,12 @@ h1 {
   opacity: 0.9;
 }
 
+.back-link:hover,
+.back-link:focus {
+  opacity: 1;
+  text-decoration: underline;
+}
+
 .blog-layout {
   display: grid;
   grid-template-columns: 230px 1fr;

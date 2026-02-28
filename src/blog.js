@@ -1,4 +1,5 @@
 import { marked } from 'marked';
+import DOMPurify from 'dompurify';
 
 const postContainer = document.getElementById('blog-post');
 const postTitle = document.getElementById('blog-post-title');
@@ -17,17 +18,21 @@ function getSlugFromUrl() {
 }
 
 function renderList(posts, activeSlug) {
-  postList.innerHTML = posts
-    .map((post) => {
-      const active = post.slug === activeSlug ? 'active' : '';
-      return `
-        <a class="post-link ${active}" href="/blog/${encodeURIComponent(post.slug)}">
-          <strong>${post.title}</strong>
-          <span>${post.date ?? ''}</span>
-        </a>
-      `;
+  postList.replaceChildren(
+    ...posts.map((post) => {
+      const a = document.createElement('a');
+      a.className = `post-link${post.slug === activeSlug ? ' active' : ''}`;
+      a.href = `/blog/${encodeURIComponent(post.slug)}`;
+
+      const strong = document.createElement('strong');
+      strong.textContent = post.title;
+      const span = document.createElement('span');
+      span.textContent = post.date ?? '';
+
+      a.append(strong, span);
+      return a;
     })
-    .join('');
+  );
 }
 
 function toExcerpt(markdown, max = 240) {
@@ -49,16 +54,30 @@ function renderPreviewList(postsWithContent) {
   postTitle.textContent = 'Posts recientes';
   postMeta.textContent = 'Resumen del contenido. Haz click en “Leer post completo” para abrir cada entrada.';
 
-  postContainer.innerHTML = postsWithContent
-    .map(({ post, excerpt }) => `
-      <article class="post-preview">
-        <h3>${post.title}</h3>
-        <p class="muted small">${post.date ?? ''}</p>
-        <p>${excerpt}</p>
-        <a class="read-more" href="/blog/${encodeURIComponent(post.slug)}">Leer post completo →</a>
-      </article>
-    `)
-    .join('');
+  postContainer.replaceChildren(
+    ...postsWithContent.map(({ post, excerpt }) => {
+      const article = document.createElement('article');
+      article.className = 'post-preview';
+
+      const h3 = document.createElement('h3');
+      h3.textContent = post.title;
+
+      const datePara = document.createElement('p');
+      datePara.className = 'muted small';
+      datePara.textContent = post.date ?? '';
+
+      const excerptPara = document.createElement('p');
+      excerptPara.textContent = excerpt;
+
+      const link = document.createElement('a');
+      link.className = 'read-more';
+      link.href = `/blog/${encodeURIComponent(post.slug)}`;
+      link.textContent = 'Leer post completo →';
+
+      article.append(h3, datePara, excerptPara, link);
+      return article;
+    })
+  );
 }
 
 async function loadPostsIndex() {
@@ -105,14 +124,19 @@ async function loadBlog() {
     const markdown = await loadPostMarkdown(selected.slug);
     postTitle.textContent = selected.title;
     postMeta.textContent = [selected.date, selected.summary].filter(Boolean).join(' · ');
-    postContainer.innerHTML = marked.parse(markdown);
+    postContainer.innerHTML = DOMPurify.sanitize(marked.parse(markdown));
   } catch (err) {
     postTitle.textContent = 'Error al cargar el blog';
     postMeta.textContent = '';
-    postContainer.innerHTML = `
-      <p class="error">No se pudo cargar el contenido.</p>
-      <pre>${err instanceof Error ? err.message : 'Error desconocido'}</pre>
-    `;
+
+    const p = document.createElement('p');
+    p.className = 'error';
+    p.textContent = 'No se pudo cargar el contenido.';
+
+    const pre = document.createElement('pre');
+    pre.textContent = err instanceof Error ? err.message : 'Error desconocido';
+
+    postContainer.replaceChildren(p, pre);
   }
 }
 
