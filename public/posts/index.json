@@ -1,5 +1,11 @@
 [
   {
+    "slug": "status-update-chilean-stablecoin",
+    "title": "Status update: Chilean stablecoin",
+    "date": "2026-02-17",
+    "summary": "Actualización técnica de la PoC CLPc: contratos en Sepolia, webapp funcional, tooling reproducible y siguientes pasos."
+  },
+  {
     "slug": "stablecoin-identidad-beneficios-sociales",
     "title": "¿Cómo podría una stablecoin basada en identidad transformar el acceso a beneficios sociales?",
     "date": "2025-12-15",
