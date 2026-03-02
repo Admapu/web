@@ -117,9 +117,14 @@ async function loadBlog() {
       return;
     }
 
-    const markdown = await loadPostMarkdown(selected.slug);
+    let markdown = await loadPostMarkdown(selected.slug);
     postTitle.textContent = selected.title;
     postMeta.textContent = [selected.date, selected.summary].filter(Boolean).join(' · ');
+
+    const escapedTitle = selected.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const h1Re = new RegExp(`^#\\s+${escapedTitle}\\s*\\n+`, 'i');
+    markdown = markdown.replace(h1Re, '');
+
     postContainer.innerHTML = DOMPurify.sanitize(marked.parse(markdown));
   } catch (err) {
     postTitle.textContent = 'Error al cargar el blog';
