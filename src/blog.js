@@ -9,10 +9,8 @@ const postList = document.getElementById('blog-post-list');
 function getSlugFromUrl() {
   const path = window.location.pathname.replace(/\/+$/, '');
   const parts = path.split('/').filter(Boolean);
-  // /blog/<slug>
   if (parts.length >= 2 && parts[0] === 'blog') return parts[1];
 
-  // backward compatibility: /blog/?post=<slug>
   const url = new URL(window.location.href);
   return url.searchParams.get('post');
 }
@@ -104,7 +102,6 @@ async function loadBlog() {
 
     renderList(posts, selected?.slug ?? null);
 
-    // Index: solo previews (no post completo)
     if (!selected) {
       const postsWithContent = await Promise.all(
         posts.map(async (post) => {
@@ -120,10 +117,14 @@ async function loadBlog() {
       return;
     }
 
-    // Post route: contenido completo
-    const markdown = await loadPostMarkdown(selected.slug);
+    let markdown = await loadPostMarkdown(selected.slug);
     postTitle.textContent = selected.title;
     postMeta.textContent = [selected.date, selected.summary].filter(Boolean).join(' · ');
+
+    const escapedTitle = selected.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const h1Re = new RegExp(`^#\\s+${escapedTitle}\\s*\\n+`, 'i');
+    markdown = markdown.replace(h1Re, '');
+
     postContainer.innerHTML = DOMPurify.sanitize(marked.parse(markdown));
   } catch (err) {
     postTitle.textContent = 'Error al cargar el blog';
