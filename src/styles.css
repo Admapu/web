@@ -254,6 +254,13 @@ canvas {
   border-collapse: collapse;
 }
 
+.blog-post img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(122, 170, 255, 0.25);
+}
+
 .blog-post th,
 .blog-post td {
   border-bottom: 1px solid rgba(122, 170, 255, 0.25);

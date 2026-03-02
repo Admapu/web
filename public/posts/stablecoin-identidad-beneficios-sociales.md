@@ -1,6 +1,6 @@
 # ¿Cómo podría una stablecoin basada en identidad transformar el acceso a beneficios sociales?
 
-![Imagen de cabecera del post](./2025-12-15-stablecoin-identidad-header.png)
+![Imagen de cabecera del post](/posts/2025-12-15-stablecoin-identidad-header.png)
 
 _Fecha original: 15 de diciembre de 2025._
 
