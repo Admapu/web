@@ -98,7 +98,7 @@ Lo que sí demuestra es que el modelo de transferencias restringidas por identid
 
 Todavía faltan terminar temas grandes como reemplazar el verifier mock por una integración ZK real, fortalecer la seguridad y revisión de contratos, construir mejor indexing/observabilidad, y endurecer la capa de relayer.
 
-El desarrollo sigue, preo al menos ya existe una base técnica mucho más coherente y reproducible.
+El desarrollo sigue, pero al menos ya existe una base técnica mucho más coherente y reproducible.
 
 ---
 
