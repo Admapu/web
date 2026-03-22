@@ -72,7 +72,7 @@ La conclusión práctica es la siguiente:
 - no, el gas de Ethereum no se paga nativamente en CLPc,
 - y el punto crítico no es solo técnico, sino operacional.
 
-Si se financia un relayer, ese relayer necesita políticas claras respecto a límites de uso tanto globales como por usuario, porque de lo contrario se puede convertir en un problema de seguridad intersante. Si el relayer es un servicio centralizado, entonces se vuelve un punto de falla y un vector de ataque. Si el relayer es un servicio descentralizado, entonces se vuelve un problema de coordinación y gobernanza.
+Si se financia un relayer, ese relayer necesita políticas claras respecto a límites de uso tanto globales como por usuario, porque de lo contrario se puede convertir en un problema de seguridad interesante. Si el relayer es un servicio centralizado, entonces se vuelve un punto de falla y un vector de ataque. Si el relayer es un servicio descentralizado, entonces se vuelve un problema de coordinación y gobernanza.
 
 No es un problema insoluble, pero sí una capa que debe tratarse como infraestructura, no como un detalle de frontend. Y eso es algo que todavía falta construir, especialmente en términos de monitoreo, alertas y políticas de uso.
 
