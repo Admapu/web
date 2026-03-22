@@ -94,7 +94,7 @@ Es un buen recordatorio de algo básico: una arquitectura útil no es solo la qu
 
 Esta fase no demuestra todavía una stablecoin lista para producción.
 
-Lo que sí demuestra es que el model de transferencias restringidas por identidad ya funciona. El flujo de claim está operatiro end-to-end. El stack puede deployarse y verificarse de forma pública. Y la experiencia gasless ya tiene una ruta técnica razonable.
+Lo que sí demuestra es que el modelo de transferencias restringidas por identidad ya funciona. El flujo de claim está operatiro end-to-end. El stack puede deployarse y verificarse de forma pública. Y la experiencia gasless ya tiene una ruta técnica razonable.
 
 Todavía faltan terminar temas grandes como reemplazar el verifier mock por una integración ZK real, fortalecer la seguridad y revisión de contratos, construir mejor indexing/observabilidad, y endurecer la capa de relayer.
 
