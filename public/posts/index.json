@@ -1,5 +1,11 @@
 [
   {
+    "slug": "deploy-verificacion-metas-tx-clpc",
+    "title": "Nuevo avance en Admapu: deploy reproducible, contratos verificados y meta-transacciones",
+    "date": "2026-03-19",
+    "summary": "Update técnico de Admapu: scripts de deploy completos, wiring post-deploy, contratos verificados, ENS y simplificación operativa de la webapp."
+  },
+  {
     "slug": "status-update-chilean-stablecoin",
     "title": "Status update: Chilean stablecoin",
     "date": "2026-02-17",
