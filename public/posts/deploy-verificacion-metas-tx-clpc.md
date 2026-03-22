@@ -86,7 +86,7 @@ La página `/network-status` de la webapp estaba usando `eth_getLogs` para calcu
 
 La solución por ahora fue simple y pragmática: Sacar cagando todo eso, porque en verdad no es información crítica para el funcionamiento de la PoC, y porque ese tipo de consultas no escala ni con RPCs más robustos ni con mejores índices.
 
-Es una buena recordatoria de algo básico: una arquitectura útil no es solo la que funciona en el contrato, sino la que además se puede operar de forma estable con RPCs reales y presupuesto real.
+Es un buen recordatorio de algo básico: una arquitectura útil no es solo la que funciona en el contrato, sino la que además se puede operar de forma estable con RPCs reales y presupuesto real.
 
 ---
 
