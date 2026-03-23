@@ -50,6 +50,7 @@ function renderIndex(posts) {
   postTitle.textContent = '';
   postMeta.textContent = '';
   postContainer.replaceChildren();
+  postList.hidden = false;
   renderList(posts, null);
 }
 
@@ -75,12 +76,12 @@ async function loadBlog() {
     const requestedSlug = getSlugFromUrl();
     const selected = posts.find((p) => p.slug === requestedSlug);
 
-    renderList(posts, selected?.slug ?? null);
-
     if (!selected) {
       renderIndex(posts);
       return;
     }
+
+    postList.hidden = true;
 
     let markdown = await loadPostMarkdown(selected.slug);
     postTitle.textContent = selected.title;
@@ -90,7 +91,7 @@ async function loadBlog() {
     const h1Re = new RegExp(`^#\\s+${escapedTitle}\\s*\\n+`, 'i');
     markdown = markdown.replace(h1Re, '');
 
-    const backLink = '<p><a href="/blog/">← Volver</a></p>';
+    const backLink = '<p class="post-actions"><a href="/blog/">← Volver</a> · <a href="/">Inicio</a></p>';
     postContainer.innerHTML = DOMPurify.sanitize(`${backLink}${marked.parse(markdown)}`);
   } catch (err) {
     postTitle.textContent = 'Error al cargar el blog';

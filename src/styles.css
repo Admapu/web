@@ -176,6 +176,11 @@ canvas {
   box-shadow: 0 0 14px rgba(82, 182, 255, 0.25);
 }
 
+.post-actions {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
 .blog-post-title {
   margin: 0.2rem 0 0.35rem;
 }
