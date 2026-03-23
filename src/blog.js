@@ -15,19 +15,17 @@ function getSlugFromUrl() {
   return url.searchParams.get('post');
 }
 
+function sortPostsNewestFirst(posts) {
+  return [...posts].sort((a, b) => new Date(b.date ?? 0).getTime() - new Date(a.date ?? 0).getTime());
+}
+
 function renderList(posts, activeSlug) {
   postList.replaceChildren(
     ...posts.map((post) => {
       const a = document.createElement('a');
       a.className = `post-link${post.slug === activeSlug ? ' active' : ''}`;
       a.href = `/blog/${encodeURIComponent(post.slug)}`;
-
-      const strong = document.createElement('strong');
-      strong.textContent = post.title;
-      const span = document.createElement('span');
-      span.textContent = post.date ?? '';
-
-      a.append(strong, span);
+      a.textContent = `${post.date ?? ''} - ${post.title}`;
       return a;
     })
   );
@@ -48,34 +46,12 @@ function toExcerpt(markdown, max = 240) {
   return `${noCode.slice(0, max).trimEnd()}…`;
 }
 
-function renderPreviewList(postsWithContent) {
-  postTitle.textContent = 'Posts recientes';
-  postMeta.textContent = 'Resumen del contenido. Haz click en “Leer post completo” para abrir cada entrada.';
-
-  postContainer.replaceChildren(
-    ...postsWithContent.map(({ post, excerpt }) => {
-      const article = document.createElement('article');
-      article.className = 'post-preview';
-
-      const h3 = document.createElement('h3');
-      h3.textContent = post.title;
-
-      const datePara = document.createElement('p');
-      datePara.className = 'muted small';
-      datePara.textContent = post.date ?? '';
-
-      const excerptPara = document.createElement('p');
-      excerptPara.textContent = excerpt;
-
-      const link = document.createElement('a');
-      link.className = 'read-more';
-      link.href = `/blog/${encodeURIComponent(post.slug)}`;
-      link.textContent = 'Leer post completo →';
-
-      article.append(h3, datePara, excerptPara, link);
-      return article;
-    })
-  );
+function renderIndex(posts) {
+  postTitle.textContent = '';
+  postMeta.textContent = '';
+  postContainer.replaceChildren();
+  postList.hidden = false;
+  renderList(posts, null);
 }
 
 async function loadPostsIndex() {
@@ -92,7 +68,7 @@ async function loadPostMarkdown(slug) {
 
 async function loadBlog() {
   try {
-    const posts = await loadPostsIndex();
+    const posts = sortPostsNewestFirst(await loadPostsIndex());
     if (!Array.isArray(posts) || posts.length === 0) {
       throw new Error('No hay posts configurados en /posts/index.json');
     }
@@ -100,22 +76,12 @@ async function loadBlog() {
     const requestedSlug = getSlugFromUrl();
     const selected = posts.find((p) => p.slug === requestedSlug);
 
-    renderList(posts, selected?.slug ?? null);
-
     if (!selected) {
-      const postsWithContent = await Promise.all(
-        posts.map(async (post) => {
-          const markdown = await loadPostMarkdown(post.slug);
-          return {
-            post,
-            excerpt: post.summary || toExcerpt(markdown),
-          };
-        })
-      );
-
-      renderPreviewList(postsWithContent);
+      renderIndex(posts);
       return;
     }
+
+    postList.hidden = true;
 
     let markdown = await loadPostMarkdown(selected.slug);
     postTitle.textContent = selected.title;
@@ -125,7 +91,8 @@ async function loadBlog() {
     const h1Re = new RegExp(`^#\\s+${escapedTitle}\\s*\\n+`, 'i');
     markdown = markdown.replace(h1Re, '');
 
-    postContainer.innerHTML = DOMPurify.sanitize(marked.parse(markdown));
+    const backLink = '<p class="post-actions"><a href="/blog/">← Volver</a> · <a href="/">Inicio</a></p>';
+    postContainer.innerHTML = DOMPurify.sanitize(`${backLink}${marked.parse(markdown)}`);
   } catch (err) {
     postTitle.textContent = 'Error al cargar el blog';
     postMeta.textContent = '';
