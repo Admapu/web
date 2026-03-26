@@ -1,5 +1,11 @@
 [
   {
+    "slug": "beneficio-transporte-escolar-combustibles",
+    "title": "Alza de combustibles, transporte escolar y beneficios focalizados programables",
+    "date": "2026-03-26",
+    "summary": "Cómo una infraestructura mínima de identidad verificable y claims programables puede habilitar ayudas mensuales focalizadas para transporte escolar sin rehacer todo el sistema."
+  },
+  {
     "slug": "deploy-verificacion-metas-tx-clpc",
     "title": "Nuevo avance en Admapu: deploy reproducible, contratos verificados y meta-transacciones",
     "date": "2026-03-19",
