@@ -1,5 +1,11 @@
 [
   {
+    "slug": "security-hardening-smart-contracts-admapu",
+    "title": "Security hardening en Admapu: por qué los Smart contracts nunca están “terminados”",
+    "date": "2026-04-18",
+    "summary": "Un recorrido por los cambios recientes en CLPc y ClaimCLPc para endurecer admin flows, trusted forwarders, identity alignment y disciplina operativa."
+  },
+  {
     "slug": "deploy-verificacion-metas-tx-clpc",
     "title": "Nuevo avance en Admapu: deploy reproducible, contratos verificados y meta-transacciones",
     "date": "2026-03-19",
