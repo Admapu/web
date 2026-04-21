@@ -22,7 +22,7 @@ Hoy ese problema está corregido en `src/ClaimCLPc.sol`. El contract declara `II
 
 ## La segunda lección: el riesgo administrativo no desaparece, se diseña alrededor de él
 
-El siguiente salto importante llegó con el [PR #17](https://github.com/Admapu/admapu/pull/17), `fix(security): timelock identity registry changes in CLPc`. Antes de ese cambio, quien tuviera `DEFAULT_ADMIN_ROLE` podía modificar el `identityRegistry` de `CLPc` en una sola transacción. Eso significa que, en caso de key comprometidas, _insider misuse_ (muy poco probale en el escenario actual) o error operacional, la policy base del token podía cambiar instantáneamente.
+El siguiente salto importante llegó con el [PR #17](https://github.com/Admapu/admapu/pull/17), `fix(security): timelock identity registry changes in CLPc`. Antes de ese cambio, quien tuviera `DEFAULT_ADMIN_ROLE` podía modificar el `identityRegistry` de `CLPc` en una sola transacción. Eso significa que, en caso de key comprometidas, _insider misuse_ (muy poco probable en el escenario actual) o error operacional, la policy base del token podía cambiar instantáneamente.
 
 En Blockchain, cuando un parámetro administra la fuente de identidad que decide quién puede recibir, transferir o interactuar con un token, **ese parámetro no es una simple variable de configuración. Es un punto de control crítico**. Si ese punto puede cambiarse de inmediato, entonces el sistema depende demasiado de una sola cuenta privilegiada.
 
