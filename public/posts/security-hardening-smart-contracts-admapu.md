@@ -66,7 +66,7 @@ En `src/ClaimCLPc.sol`, el contract usa `ERC2771Context` y sobreescribe `_msgSen
 
 Por eso es tan importante que la suite de tests incluya casos como `testForwardedClaimUsesTrustedForwarder()` y `testNonTrustedForwarderCannotSpoofSender()` en `test/ClaimCLPc.t.sol`, además de `testForwardedTransferSucceedsWhenBothVerified()` y `testNonTrustedForwarderCannotSpoofSender()` en `test/CLPc.t.sol`. Lo que se está validando ahí no es solo que las meta-transactions "anden". Lo que se está validando es que el sistema distingue correctamente entre un relayer legítimo y un actor arbitrario intentando hacerse ~~el vivo~~ pasar por otro usuario.
 
-Esa, creo, **es la sutíl diferencia entre una integración superficial y una integración segura**.
+Esa, creo, **es la sutil diferencia entre una integración superficial y una integración segura**.
 
 ## Hardening también significa documentación, deploy discipline y runbooks operativos
 
