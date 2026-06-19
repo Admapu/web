@@ -1,5 +1,11 @@
 [
   {
+    "slug": "sae-onchain-admision-escolar-verificable",
+    "title": "Admisión escolar verificable: cómo llevar las reglas del SAE a infraestructura pública",
+    "date": "2026-06-19",
+    "summary": "Una propuesta para llevar las reglas del Sistema de Admisión Escolar a una arquitectura híbrida con commitments, credenciales verificables, Merkle proofs y auditoría pública sin exponer datos sensibles."
+  },
+  {
     "slug": "security-hardening-smart-contracts-admapu",
     "title": "Security hardening en Admapu: por qué los Smart contracts nunca están “terminados”",
     "date": "2026-04-18",
