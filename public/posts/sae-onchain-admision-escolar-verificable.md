@@ -61,7 +61,7 @@ Por eso la pregunta importante no es “¿blockchain o base de datos?”, sino:
 
 ---
 
-## Una versión SAE-verifiable sobre Admapu
+## Una versión SAE-verificable sobre Admapu
 
 La alternativa no es poner toda la admisión escolar directamente on-chain. Eso sería caro, lento y riesgoso para la privacidad.
 
