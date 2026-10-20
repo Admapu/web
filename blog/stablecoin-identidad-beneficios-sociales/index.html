@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/admapu-symbol.svg" />
     <title>Admapu Blog</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,34 +11,30 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body class="blog-page">
-    <div class="scene" aria-hidden="true"></div>
-    <canvas id="network" aria-hidden="true"></canvas>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Admapu, inicio"><img class="brand-mark" src="/admapu-symbol.svg" alt="" width="48" height="48" />admapu<span class="brand-dot">.</span></a>
+      <nav class="site-nav" aria-label="Navegación principal"><a href="/">Inicio</a><a href="/blog/" aria-current="page">Bitácora</a></nav>
+    </header>
 
-    <main class="content blog-content">
+    <main id="main" class="blog-content">
       <section class="blog-shell">
         <header class="blog-header">
           <a href="/" class="back-link">← Volver</a>
-          <h1>Blog</h1>
+          <h1>Bitácora del proyecto.</h1>
           <p class="subtitle">Notas técnicas y avances del proyecto Admapu.</p>
         </header>
 
-        <div class="blog-layout">
-          <aside class="blog-sidebar">
-            <h2>Posts</h2>
-            <nav id="blog-post-list" class="blog-post-list" aria-label="Listado de posts"></nav>
-          </aside>
-
-          <article>
-            <h2 id="blog-post-title" class="blog-post-title"></h2>
-            <p id="blog-post-meta" class="muted small"></p>
-            <div id="blog-post" class="blog-post" aria-live="polite"></div>
-          </article>
-        </div>
+        <article class="blog-main">
+          <nav id="blog-post-list" class="blog-post-list" aria-label="Listado de posts"></nav>
+          <h2 id="blog-post-title" class="blog-post-title"></h2>
+          <p id="blog-post-meta" class="muted small"></p>
+          <div id="blog-post" class="blog-post" aria-live="polite"></div>
+        </article>
       </section>
     </main>
 
-    <div class="vignette" aria-hidden="true"></div>
-    <script type="module" src="/src/main.js"></script>
+    <footer class="site-footer"><a class="footer-brand" href="/" aria-label="Admapu, inicio"><img src="/admapu-symbol.svg" alt="" width="30" height="30" />admapu.</a><p>Tecnología con raíces. Hecha para explorar.</p><a href="/">Volver al inicio ↑</a></footer>
     <script type="module" src="/src/blog.js"></script>
   </body>
 </html>
