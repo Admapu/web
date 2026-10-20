@@ -19,7 +19,7 @@ a:focus-visible { outline: 3px solid #397a59; outline-offset: 5px; border-radius
 .site-header { padding: 28px 5%; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
 .wordmark { display: inline-flex; align-items: center; gap: 10px; font: 600 30px var(--font-title); letter-spacing: -1.5px; text-decoration: none; }
 .brand-dot { color: #6d8353; margin-left: -9px; }
-.brand-mark { display: grid; place-items: center; width: 32px; height: 35px; border-radius: 14px 14px 4px 14px; background: var(--green); color: var(--paper); font-size: 27px; letter-spacing: -2px; padding-right: 2px; }
+.brand-mark { display: block; width: 48px; height: 48px; flex-shrink: 0; }
 .site-nav { display: flex; align-items: center; gap: 30px; font-size: 14px; font-weight: 500; }
 .site-nav > a:not(.button) { text-decoration: none; }
 .site-nav > a:not(.button):hover, .text-link:hover, .site-footer a:hover { color: #397a59; text-decoration: underline; }
@@ -55,7 +55,7 @@ h1, h2, h3 { font-family: var(--font-title); font-weight: 400; }
 .principle p { font-size: 14px; color: var(--muted); line-height: 1.8; margin: 0 0 15px; }
 .site-footer { border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 25px 5%; font-size: 12px; color: var(--muted); }
 .site-footer a { text-decoration: none; }
-.footer-brand { font: 600 20px var(--font-title); color: var(--ink); letter-spacing: -1px; }
+.footer-brand { display: inline-flex; align-items: center; gap: 8px; font: 600 20px var(--font-title); color: var(--ink); letter-spacing: -1px; }
 /* The same quiet palette carries through the blog and article pages. */
 .blog-content { padding: 25px 5% 70px; }
 .blog-shell { width: min(900px, 100%); margin: auto; padding: clamp(22px, 5vw, 60px); background: #fffefa; border: 1px solid var(--line); border-radius: 24px; }
